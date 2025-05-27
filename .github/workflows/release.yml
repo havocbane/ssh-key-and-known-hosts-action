@@ -1,14 +1,15 @@
-name: "Release"
+name: Release
 
+# Create a release tag version using a format matching either "v1.2.3" or "test/v1.2.3"
 on: create
 
 jobs:
   release:
-    name: build new release
+    name: Create New Release
     runs-on: ubuntu-latest
     steps:
       - uses: technote-space/release-github-actions@v8
         with:
           CREATE_MINOR_VERSION_TAG: false
-          COMMIT_NAME: "kielabokkie"
-          COMMIT_EMAIL: "kielabokkie@gmail.com"
+          COMMIT_NAME: "havocbane"
+          COMMIT_EMAIL: "havocbane@users.noreply.github.com"
