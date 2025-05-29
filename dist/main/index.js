@@ -31,7 +31,7 @@ async function run() {
     console.log("Starting ssh-agent");
 
     // Start the ssh agent
-    await (0,execa__WEBPACK_IMPORTED_MODULE_2__["default"])("ssh-agent", ["-a", authSock]);
+    await (0,execa__WEBPACK_IMPORTED_MODULE_2__/* .execa */ .r)("ssh-agent", ["-a", authSock]);
 
     (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.exportVariable)("SSH_AUTH_SOCK", authSock);
 
@@ -39,7 +39,7 @@ async function run() {
 
     // Add the private key
     const key = privateKey.replace("/\r/g", "").trim() + "\n";
-    await (0,execa__WEBPACK_IMPORTED_MODULE_2__["default"])("ssh-add", ["-"], { input: key });
+    await (0,execa__WEBPACK_IMPORTED_MODULE_2__/* .execa */ .r)("ssh-add", ["-"], { input: key });
 
     console.log("Adding host to known_hosts");
 
@@ -48,7 +48,7 @@ async function run() {
     if (sshKeyscanTimeout) {
       keyScanArgs.unshift("-T", sshKeyscanTimeout);
     }
-    const { stdout } = await (0,execa__WEBPACK_IMPORTED_MODULE_2__["default"])("ssh-keyscan", keyScanArgs);
+    const { stdout } = await (0,execa__WEBPACK_IMPORTED_MODULE_2__/* .execa */ .r)("ssh-keyscan", keyScanArgs);
     const knownHostsFile = sshDir + "/known_hosts";
 
     await (0,node_fs_promises__WEBPACK_IMPORTED_MODULE_1__.appendFile)(knownHostsFile, stdout);
@@ -4292,11 +4292,16 @@ module.exports = require("util");
 /***/ }),
 
 /***/ 181:
-/***/ ((__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __nccwpck_require__) => {
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __nccwpck_require__) => {
 
 "use strict";
 
-// UNUSED EXPORTS: $, ExecaError, ExecaSyncError, execa, execaCommand, execaCommandSync, execaNode, execaSync, getCancelSignal, getEachMessage, getOneMessage, parseCommandString, sendMessage
+// EXPORTS
+__nccwpck_require__.d(__webpack_exports__, {
+  "r": () => (/* binding */ execa)
+});
+
+// UNUSED EXPORTS: $, ExecaError, ExecaSyncError, execaCommand, execaCommandSync, execaNode, execaSync, getCancelSignal, getEachMessage, getOneMessage, parseCommandString, sendMessage
 
 ;// CONCATENATED MODULE: ./node_modules/is-plain-obj/index.js
 function isPlainObject(value) {
@@ -7416,7 +7421,6 @@ const getEnv = ({env: envOption, extendEnv, preferLocal, node, localDirectory, n
 const concatenateShell = (file, commandArguments, options) => options.shell && commandArguments.length > 0
 	? [[file, ...commandArguments].join(' '), [], options]
 	: [file, commandArguments, options];
-
 
 ;// CONCATENATED MODULE: ./node_modules/strip-final-newline/index.js
 function strip_final_newline_stripFinalNewline(input) {

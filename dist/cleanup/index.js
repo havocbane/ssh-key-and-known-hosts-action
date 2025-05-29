@@ -3889,7 +3889,6 @@ const concatenateShell = (file, commandArguments, options) => options.shell && c
 	? [[file, ...commandArguments].join(' '), [], options]
 	: [file, commandArguments, options];
 
-
 ;// CONCATENATED MODULE: ./node_modules/strip-final-newline/index.js
 function strip_final_newline_stripFinalNewline(input) {
 	if (typeof input === 'string') {
